@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: leder-gateway
+server:
+  port: 8761
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serverUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+zuul:
+  #Service will be mapped under the /api URI
+  #prefix: /vdcn
+  routes:
+    refrenceData:
+      path: /referenceData/**
+      url: http://localhost:8186
