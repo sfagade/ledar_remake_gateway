@@ -17,3 +17,6 @@ zuul:
     refrenceData:
       path: /referenceData/**
       url: http://localhost:8186
+    properties:
+      path: /properties/**
+      url: http://localhost:8183
