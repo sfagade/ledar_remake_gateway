@@ -20,3 +20,6 @@ zuul:
     properties:
       path: /properties/**
       url: http://localhost:8183
+    security:
+      path: /security/**
+      url: http://localhost:8182
