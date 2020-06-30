@@ -1,0 +1,20 @@
+# docker-compose.yml
+version: '3'
+services:
+  postgres-database-compose:
+    image: "postgres" # use latest official postgres version
+    env_file:
+      - database.env # configure postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=ledar_reference_dev,ledar_properties_dev
+    networks:
+      - postgres-compose-network
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+networks:
+  postgres-compose-network:
+    driver: bridge
